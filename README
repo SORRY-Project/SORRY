@@ -1,4 +1,3 @@
-
  1.All modules will be properties of the Sorry Namespace.
  2.Do not declare the Sorry Namespace (i.e var Sorry = {};) in your code. 
    I will take care of defining the Namespace. 
@@ -36,7 +35,7 @@
    4.Public methods can be accessed as Sorry.moduleName.functionName
    5.Camel Case for identifiers, constructors/namespaces begin with capital letter
    6.If using jQuery, caching is great to prevent unnecessary DOM traversal if you plan on
-     accessing a particular DOM element more than once. Store your jQuery object in a variable who's
+     accessing a particular DOM element more than once. Store your jQuery object in a variable whose
      identifier begins with $ to let others know it's a jQuery object
      ex) var $myElement = $(“#myElement”);
    7.Can use Chrome Developer Tools or Firebug to debug your code. This code must be included in an
