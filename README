@@ -1,0 +1,57 @@
+
+ 1.All modules will be properties of the Sorry Namespace.
+ 2.Do not declare the Sorry Namespace (i.e var Sorry = {};) in your code. 
+   I will take care of defining the Namespace. 
+ 3.Module Pattern 
+   ex) Sorry.moduleName = (function() {
+
+        //dependencies
+        var uObj = MYAPP.utilities.object,
+            ulang = MYAPP.utilities.lang; 
+
+        //private variables
+        var myObj = {},
+            myArr = [];
+
+        //private methods
+        function funOne(args) {
+
+
+        }
+
+        //public methods
+        return {
+            funTwo : function() {
+          
+            },
+            funThree : function(name,date) {
+
+            }
+        }
+
+      //if you want to use the module pattern with a constructor function, 
+      //return the constructor function
+
+      })();
+   4.Public methods can be accessed as Sorry.moduleName.functionName
+   5.Camel Case for identifiers, constructors/namespaces begin with capital letter
+   6.If using jQuery, caching is great to prevent unnecessary DOM traversal if you plan on
+     accessing a particular DOM element more than once. Store your jQuery object in a variable who's
+     identifier begins with $ to let others know it's a jQuery object
+     ex) var $myElement = $(“#myElement”);
+   7.Can use Chrome Developer Tools or Firebug to debug your code. This code must be included in an
+     html file (use <script src='path'></script>) and then viewed with the browser, where
+     'path' is the URI of your .js file.
+   8. Basic html5 template for testing
+      <!DOCTYPE html>
+         <html> 
+          <head>
+           <meta charset='utf-8'/>
+           <title></title>
+           <!-- your scripts -->
+           <script src=''></script>
+           <script src=''></script>
+          </head>
+          <body>
+          </body>
+         </html>
