@@ -1,6 +1,6 @@
  1.All modules will be properties of the Sorry Namespace.
- 2.Do not declare the Sorry Namespace (i.e var Sorry = {};) in your code. 
-   I will take care of defining the Namespace. 
+ 2.Declare the Sorry Namespace (i.e var Sorry = {};) at the top of your code. 
+   This statement will be removed when modules are integrated. 
  3.Module Pattern 
    ex) Sorry.moduleName = (function() {
 
