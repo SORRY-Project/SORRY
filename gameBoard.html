@@ -12,6 +12,12 @@
 	Your Browser does not support canvas. upgrade
         </canvas>
 		<script>
+			/**
+				Sorry.gameBoard module
+				Draws game board using html5 canvas.
+
+			*/
+
 			var Sorry = {};
 			
 			Sorry.gameBoard = (function(){
@@ -26,6 +32,11 @@
 				var width = canvas.width/16;
 				var  height = canvas.height/16;
 				
+				/*
+					@param topLeftCornerX {Integer} top left corner of rectangle x coordinate
+					@param topLeftCornerY {Integer} top left corner of rectangle y coordinate
+					@param color {String} Fill color or rectangle
+				*/
 				function drawRect(topLeftCornerX, topLeftCornerY, color)
 				{
 					context.beginPath();
@@ -79,6 +90,15 @@
 
 				}
 				
+				/*
+					Draws booster/slider object
+
+					@param x {Integer} Start Coordinate X
+					@param y {Integer} Start coordinate Y
+					@param x2 {Integer} End Coordinate X
+					@param y2 {Integer} End Coordinate Y
+					@param color {String} Booster color
+				*/
 				function drawBooster(x,y,x2,y2,color)
 					{
 						//line
@@ -118,8 +138,11 @@
 					}
 					
 				
-	
 				
+				/*
+					All boosters large and small
+					Draws 8 total (2 per color)
+				*/
 				function drawAllBoosters() 
 				{
 					//small booster values
@@ -175,7 +198,11 @@
 					context.rotate(Math.PI / 2);
 					context.translate(-canvas.width/2,-canvas.height/2);//top-left
 				}	
+				
 
+				/*
+					Starting circles
+				*/
 				function drawStart(){
 					//green circle
 					centerX = width *4.5;
@@ -230,6 +257,10 @@
 				    context.stroke();
 				}
 				
+				/*
+					Finish zones
+					1 per color, 4 total
+				*/
 				function drawFinish(){
 					//5sq 1c
 					//Green
