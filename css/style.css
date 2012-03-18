@@ -1,0 +1,15 @@
+body{
+	background-color: green;
+	margin: 0px 0px 0px 0px;
+
+}
+#banner{
+	background-color: red;
+	font-size: 24pt;
+	height: 75px;
+}
+
+#myCanvas{
+	background-color: #FFFFFF;
+	margin: 20px 20px 20px 20px;
+}

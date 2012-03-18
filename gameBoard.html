@@ -2,15 +2,20 @@
 <html> 
     <head>
         <meta charset='utf-8'/>
-        <title></title>
+        <title>Sorry</title>
+
+        <link rel='stylesheet' type='text/css' href='css/style.css'/>
+
         <!-- your scripts -->
         <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
         <script src=''></script>
     </head>
      <body>
+     	<nav id="banner">Sorry!</nav>
+
 	 <canvas id="myCanvas" width="640" height="640">
 	Your Browser does not support canvas. upgrade
-        </canvas>
+       </canvas>
 		<script>
 			/**
 				Sorry.gameBoard module
@@ -363,13 +368,45 @@
 							drawAllBoosters();
 							drawStart();
 							drawFinish();
+						},
+
+						eventLayer: function(){
+							 $('#myCanvas').bind('click', function(event) {
+   								 var xMargin = $('#myCanvas').css('marginLeft');
+   								 var yMargin = $('#myCanvas').css('marginTop');
+   								 var yHeader = $('#banner').css('height');
+
+   								 xMargin = xMargin.slice(0,-2);
+   								 yMargin = yMargin.slice(0,-2);
+   								 yHeader = yHeader.slice(0,-2);
+   								 
+   								 console.log(xMargin);
+
+
+   								 var x = 
+   								 	   event.pageX - xMargin;
+
+   								 console.log(x);
+
+   								 var y = 
+   								 	   event.pageY - yMargin - yHeader;
+
+   								 alert('The mouse cursor is at ('
+     							 + x + ', ' + y + ')');
+ 							 });
+
 						}
+
+
 						
 				}
 				
 				})();
 				
 				Sorry.gameBoard.drawBoard();
+
+				Sorry.gameBoard.eventLayer();
+
 
 			
 			
