@@ -12,4 +12,12 @@ body{
 #myCanvas{
 	background-color: #FFFFFF;
 	margin: 20px 20px 20px 20px;
+	float:left;
+
+}
+
+#accordion{
+	float:left;
+
+	width: 420px;
 }
