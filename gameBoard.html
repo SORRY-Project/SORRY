@@ -5,17 +5,35 @@
         <title>Sorry</title>
 
         <link rel='stylesheet' type='text/css' href='css/style.css'/>
-
+        <link rel='stylesheet' type='text/css' href='css/ui-darkness/jquery-ui-1.8.18.custom.css'>
         <!-- your scripts -->
         <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
-        <script src=''></script>
+        <script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js'></script>
+
+        <script>
+			$(function() {
+				$( "#accordion" ).accordion();
+			});
+			</script>
     </head>
      <body>
      	<nav id="banner">Sorry!</nav>
 
-	 <canvas id="myCanvas" width="640" height="640">
-	Your Browser does not support canvas. upgrade
-       </canvas>
+	    <div id="gameContainer">
+	   		 <canvas id="myCanvas" width="640" height="640">
+				Your Browser does not support canvas. upgrade
+     		 </canvas>
+
+     		 <div id="accordion">
+   					 <h3><a href="#">Game</a></h3>
+   					 <div>First content
+   					 </div>
+
+    				<h3><a href="#">Rules</a></h3>
+    				<div>Second content
+    				</div>
+			  </div>
+		</div>
 		<script>
 			/**
 				Sorry.gameBoard module
