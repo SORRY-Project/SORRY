@@ -4,7 +4,7 @@ body{
 
 }
 #banner{
-	background-color: red;
+	background-color: white;
 	font-size: 24pt;
 	height: 75px;
 }
@@ -13,11 +13,42 @@ body{
 	background-color: #FFFFFF;
 	margin: 20px 20px 20px 20px;
 	float:left;
+	z-index: 10;
 
+}
+
+#gameContainer{
+		height: 640px;
 }
 
 #accordion{
 	float:left;
-
+	z-index: 10;
 	width: 420px;
+
+	margin-top: 20px;
+}
+
+#boardContainer{
+	position: relative;
+
+}
+
+#boardOverlay{
+	position: absolute;
+	border: yellow 3px;
+	top: 20px;
+	left: 30px;
+}
+
+#b1{
+	position: absolute;
+	left: 400px;
+	top: 602px;
+}
+
+#h5Badge{
+	position: absolute;
+	left: 350px;
+	top: 10px;
 }
