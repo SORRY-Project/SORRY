@@ -12,7 +12,11 @@
 
         <script>
 			$(function() {
-				$( "#accordion" ).accordion();
+				$( "#accordion" ).accordion({
+					autoHeight: false,
+					navigation: true,
+					collapsible: true,
+				});
 			});
 			</script>
     </head>
@@ -33,15 +37,220 @@
      		</div><!-- board container-->
 
      		 <div id="accordion">
-   					 <h3><a href="#">Game</a></h3>
-   					 <div>First content
-   					 </div>
+   				<h3><a href="#">Game</a></h3>
+   				  <div>
+   					<form>
+   					Name:
+					<input type="text" value="Jeffrey R. Hudzik" id="name"/>
+					<br/>
+					Color:<select id="color">
+					<option value="blue">Blue</option>
+					<option value="green">Green</option>
+					<option value="yellow">Yellow</option>
+					<option value="red">Red</option>
+					</select> 
+					<br/>Easy<input type="radio" name="diffLevel" value="easy" checked="checked"/>
+					<br/>Hard<input type="radio" name="diffLevel" value="hard"/>
+					<br/>
+					<button>New Game</button>
+					</form>
+   				  </div>
 
-    				<h3><a href="#">Rules</a></h3>
-    				<div>Second content
+    			<h3><a href="#">Rules</a></h3>
+    				<div>
+    					<h2>Introduction</h2>
+
+			<p></cite>Sorry!</cite> is an excellent board game that is simple to
+			learn and play, but has enough detail in it to be fun even for people
+			who like complex strategy. It plays very quickly, and is a good warm-up
+			game for groups of four.</p>
+
+			<p>This document is a quick summary of the rules. The idea is to
+			familiarize the reader with this game so that any references made to the
+			game by other documents will be understood. This document assumes that
+			the only variation of this game worth discussing is the "variation for
+			adults," or "tournament version."</p>
+
+			<h2>What's in a <cite>Sorry!</cite> Set?</h2>
+
+			<h3>The Board</h3>
+
+			<p>The board for <cite>Sorry!</cite> looks mostly like this:</p>
+
+
+
+			<p>It has several important features.</p>
+
+			<h4>The Start Spaces</h4>
+
+			<p>You start out with all four of your pawns
+			on your Start.</p>
+
+			<h4>The Open Track</h4>
+
+			<p>The squares around the edge of the board are called the open track.
+			This is where most movement occurs during the game.</p>
+
+			<h4>The Slides</h4>
+
+			<p>Some parts of the open track have "slides" on them.
+			The triangular ends of the slides are the start of each slide.
+			The circular ends of the slides are the end of each slide.
+			More about using slides, later.</p>
+
+			<h4>The Safety Zones</h4>
+
+			<p>The safety zones are the colored squares leading to your home.
+			You may only enter your own safety zone.
+			You must enter it from where it joins to the open track.
+			While one of your pawns is in your safety zone,
+			no other player can affect that pawn.</p>
+
+			<h4>The Home Spaces</h4>
+
+			<p>The ultimate goal of the game
+			is to get all four of your pawns
+			onto your Home space.
+			More about Home under "How do You Win...".</p>
+
+			<h3>The Pawns</h3>
+
+			<p>Each player has four pawns of a color that matches the side
+			of the board in front of that player.
+			These pawns all start out on the Start space
+			of their respective color.</p>
+
+			<h3>The Cards</h3>
+
+			<p>A <cite>Sorry!</cite> deck is very similar to a poker deck,
+			except for these differences:</p>
+
+			<ul>
+			<li>There are no jokers</li>
+			<li>There are no 6's</li>
+			<li>There are no 9's</li>
+			<li>Aces count as 1's</li>
+			<li>Jacks are replaced by 11's</li>
+			<li>Queens are replaced by 12's</li>
+			<li>Kings are replaced by "Sorry!" cards</li>
+			</ul>
+
+			<h2><a name="howtoplay">How</a> do You Play <cite>Sorry!</cite>?</h2>
+
+			<h3>Setting Up</h3>
+
+			<ol>
+			<li>Shuffle the deck.</li>
+			<li>Deal five cards face down to each player.</li>
+			<li>Place the remaining deck face down in the middle of the board.</li>
+			<li>Place the four pawns of each color on the Start of that color.</li>
+			<li>Pick a player to go first.</li>
+			</ol>
+
+			<h3>On Your Turn</h3>
+
+			<ol>
+			<li>Select one card from your hand.</li>
+			<li>Play it onto the discard pile.</li>
+			<li>Move one of your pawns according to its instructions.
+			If you cannot move any of your pawns according to those
+			instructions, that card has no effect.</li>
+			<li>Draw a new card and add it to your hand.</li>
+			<li>If any player's pawn ends a turn at the start of a slide
+			that is <em>a different player's color</em>, that pawn slides
+			to the end of that slide. Any pawns in the middle of the slide
+			are sent back to their respective Starts.</li>
+			<li>If any player's pawn ends a turn on a square that is occupied
+			by another pawn, the pawn that was landed on is sent back to the
+			appropriate Start.
+			</ol>
+
+			<h3>The Meanings of the Cards</h3>
+
+			<dl compact>
+			<dt>1</dt>
+			<dd>Move a pawn from your Start to just outside it,
+			<br>OR
+			<br>move a pawn forward one square.</dd>
+
+			<dt>2</dt>
+			<dd>Move a pawn from your Start to just outside it,
+			<br>OR
+			<br>move a pawn forward two squares.
+			<br>In addition, even if you did not move, take another turn after this one.</dd>
+
+			<dt>3</dt>
+			<dd>Move a pawn forward three squares.</dd>
+
+			<dt>4</dt>
+			<dd>Move a pawn <strong>backward</strong> four squares.</dd>
+
+			<dt>5</dt>
+			<dd>Move a pawn forward five squares.</dd>
+
+			<dt>7</dt>
+			<dd>Move a pawn forward seven squares,
+			<br>OR
+			<br>split the move between two pawns,
+			moving them forward a <em>total</em> of seven squares.</dd>
+
+			<dt>8</dt>
+			<dd>Move a pawn forward eight squares.</dd>
+			<dd></dd>
+
+			<dt>10</dt>
+			<dd>Move a pawn forward ten squares,
+			<br>OR
+			<br>move a pawn <strong>backward</strong> one square.</dd>
+
+			<dt>11</dt>
+			<dd>Move a pawn forward eleven squares,
+			<br>OR
+			<br>you may switch one of your pawns that is on the open track
+			with any pawn of another color that is also on the outer track.
+			</dd>
+
+			<dt>12</dt>
+			<dd>Move a pawn forward twelve squares.</dd>
+
+			<dt>Sorry!</dt>
+			<dd>Take a pawn off your Start,
+			place it on any open track space that is occupied by an opponent's pawn,
+			and send the opposing pawn back to Start.</dd>
+			</dl>
+
+			<h3>The "Safety Zone" and "Home"</h3>
+
+			<p>You may enter your safety zone only by moving forward.
+			You may leave the safety zone by moving backwards,
+			but not via any other card effect.
+			In other words,
+			pawns in your safety zone cannot be affected by
+			Sorry cards or elevens.</p>
+
+			<p>You may also leave the safety zone
+			by landing on your Home by exact count.
+			Pawns on your Home are essentially
+			out of the game,
+			and are not affected by
+			any card or movement rules.</p>
+
+			<h2>How do You Win a Game of <cite>Sorry!</cite>?</h2>
+
+			<p>If you get all four of your pawns
+			onto your Home, you win!</p>
+
+    				</div>
+
+    			<h3><a href="#">Hints</a></h3>
+    				<div>
+    					<ul>
+    						<li>Don't be a noob</li>
+    						<li>Follow the rules</li>
+    					</ul>
     				</div>
 			  </div>
-		</div>
+		</div><!-- Game Container-->
 		<script>
 			/**
 				Sorry.gameBoard module
@@ -406,10 +615,13 @@
 				
 				/**
 					Gets coordinates of user click
+
 					@author Andrew Cohen
 				*/
+
+
 				function getClick(){
-												 $('#boardContainer').bind('click', function(event) {
+							 $('#boardContainer').bind('click', function(event) {
    								 var xMargin = $('#myCanvas').css('marginLeft');
    								 var yMargin = $('#myCanvas').css('marginTop');
    								 var yHeader = $('#banner').css('height');
@@ -431,9 +643,15 @@
 
    								 alert('The mouse cursor is at ('
      							 + x + ', ' + y + ')');
+
+     							 //var dest = logic.checkClick(x,y);
+
+   								 $('#b1').attr("src", "img/blueSelected.png");
+     							
  							 });
 				}
 				
+
 			
 				return {
 						drawBoard: function(){
@@ -446,6 +664,9 @@
 						eventLayer: function(){
 
 							getClick();
+
+
+
 						}
 
 

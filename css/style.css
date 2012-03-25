@@ -17,14 +17,21 @@ body{
 
 }
 
+#gameContainer{
+		height: 640px;
+}
+
 #accordion{
 	float:left;
 	z-index: 10;
 	width: 420px;
+
+	margin-top: 20px;
 }
 
 #boardContainer{
 	position: relative;
+
 }
 
 #boardOverlay{
@@ -36,8 +43,8 @@ body{
 
 #b1{
 	position: absolute;
-	left: 438px;
-	top: 550px;
+	left: 400px;
+	top: 602px;
 }
 
 #h5Badge{
