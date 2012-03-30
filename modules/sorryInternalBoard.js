@@ -1,0 +1,22 @@
+
+(function() {
+	
+	
+	Sorry.InternalBoard = (function() {
+		
+		
+		
+		
+		
+		
+		
+	})(); 
+	
+	
+	
+	
+	
+	
+	
+	
+})();

@@ -1,7 +1,7 @@
 body{
-	background-color: green;
-	margin: 0px 0px 0px 0px;
-
+	background-color:#000;
+	background-image:url("../img/backgroundGradient.png");
+	background-repeat:repeat-x;
 }
 #banner{
 	background-color: white;
@@ -14,7 +14,7 @@ body{
 	margin: 20px 20px 20px 20px;
 	float:left;
 	z-index: 10;
-
+	box-shadow:5px 5px 15px #000;
 }
 
 #gameContainer{
@@ -25,8 +25,12 @@ body{
 	float:left;
 	z-index: 10;
 	width: 420px;
-
 	margin-top: 20px;
+}
+
+#rules {
+	max-height:350px;
+	overflow-y:scroll;
 }
 
 #boardContainer{

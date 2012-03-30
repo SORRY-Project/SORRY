@@ -1,7 +1,6 @@
 /**
  * Sorry.Card Module 
- * Contains Card Constructor and a private object literal
- * containing Sorry! card instructions
+ * @return Card Constructor 
  */
 Sorry.Card = (function() {
 
@@ -22,7 +21,7 @@ Sorry.Card = (function() {
 
 	/**
 	 * @constructor 
-	 * @param value {Integer} || {String} An integer value of [1-10] 
+	 * @param value {Integer} || {String} An integer value of [1-11] 
 	 * excluding 6 and 9, or the String "Sorry"
 	 */
 	function Card(value) {
@@ -30,10 +29,9 @@ Sorry.Card = (function() {
 		//Cannot instantiate a card whose value is 6,9, <=0, >11
 		//or any String except "Sorry"
 		if(value != 6 && value != 9 
-		   && ((value < 12 && value > 0) 
+		   && ((value < 13 && value > 0) 
 		   || value == "Sorry")) {
 
-			this.discarded = false;
 			this.value = value;
 
 			switch(value) {
@@ -64,6 +62,9 @@ Sorry.Card = (function() {
 				case 11 :
 					this.instruction = instructions.eleven;
 					break;
+				case 12 :
+					this.intruction = instructions.twelve;
+					break;
 				case "Sorry" :
 					this.instruction = instructions.Sorry;
 					break;
@@ -73,6 +74,20 @@ Sorry.Card = (function() {
 			throw "Card Constructor called with Invalid Argument: " + value;
 		}
 	}
+	
+	Card.prototype = (function() {
+		
+		return {
+			getValue : function() {
+				return this.value;
+			},
+			getInstruction : function() {
+				return this.instruction;
+			}
+		}
+		
+		
+	})();
 
 	return Card;
 
