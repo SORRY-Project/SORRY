@@ -41,7 +41,7 @@
    				  <div>
    					<form>
    					Name:
-					<input type="text" value="Jeffrey R. Hudzik" id="name"/>
+					<input type="text" value="Justin Credible" id="name"/>
 					<br/>
 					Color:<select id="color">
 					<option value="blue">Blue</option>
@@ -57,7 +57,7 @@
    				  </div>
 
     			<h3><a href="#">Rules</a></h3>
-    				<div>
+    				<div id="rulesContainer" style="max-height:400px;overflow-y:scroll;">
     					<h2>Introduction</h2>
 
 			<p></cite>Sorry!</cite> is an excellent board game that is simple to
@@ -612,6 +612,43 @@
 				    context.stroke();
 					
 				}
+
+				/*
+					@author Andrew Sullivan
+				*/
+				function drawDeck(){
+					context.beginPath();
+					context.rect(width*8.5, height*7, width*2, height*3);
+					context.fillStyle = "cyan";
+					context.fill();
+					context.lineWidth = 2;
+					context.strokeStyle = "black";
+					context.stroke();
+					context.save();
+					context.translate(width*9.9, height*8.5);
+					context.rotate(-Math.PI/2);
+					context.textAlign = "center";
+					context.font = "30pt sans-serif";
+					context.fillStyle = "black";
+					context.fillText("Sorry!", 0, 0);
+					context.restore();
+   
+   			 }
+
+				/*
+					@author Andrew Sullivan
+				*/   			 	
+   			 
+				function drawCard(){
+					context.beginPath();
+					context.rect(width*5.5, height*7, width*2, height*3);
+					context.fillStyle = "purple";
+					context.fill();
+					context.lineWidth = 2;
+					context.strokeStyle = "black";
+					context.stroke();
+				}
+
 				
 				/**
 					Gets coordinates of user click
@@ -652,6 +689,47 @@
 				}
 				
 
+				//animation layer begins
+
+				function movePiece(id,direction,distance){
+					distance *= 40; //each square is 40 px
+					speed = 1000;
+					console.log(id + ""+direction+''+distance);
+					domId = '#'+id+'';
+					console.log(domId);
+
+					switch(direction)
+					{
+						case "left":
+							console.log(domId);
+							$(domId).animate({
+								marginLeft: -(distance)
+							},speed);
+							console.log("moving left");
+							break;
+
+						case "right":
+							$(domId).animate({
+								marginLeft: (distance) 
+							},speed);
+							console.log("moving right");
+							break;
+
+						case "up":
+							$(domId).animate({
+								marginTop: -(distance)
+							},speed);
+							console.log("moving up");
+							break;
+
+						case "down":
+							$(domId).animate({
+								marginTop: (distance)
+							},speed);
+							console.log("moving down");
+							break;
+					}
+				}
 			
 				return {
 						drawBoard: function(){
@@ -659,14 +737,19 @@
 							drawAllBoosters();
 							drawStart();
 							drawFinish();
+							drawDeck();
+							drawCard();
+
 						},
 
 						eventLayer: function(){
 
-							getClick();
+							getClick();	
 
+						},
 
-
+						move: function(id,direction,distance){
+							movePiece(id,direction,distance);
 						}
 
 
@@ -679,9 +762,22 @@
 
 				Sorry.gameBoard.eventLayer();
 
+				
+				Sorry.gameBoard.move("b1","down",1);
 
+				Sorry.gameBoard.move("b1","left",11);
+				// Sorry.gameBoard.move("b1","left",13);
+
+				Sorry.gameBoard.move("b1","up",14);
+				Sorry.gameBoard.move("b1","right",4);
+				Sorry.gameBoard.move("b1","down",1);
+				Sorry.gameBoard.move("b1","left",-2);
+				Sorry.gameBoard.move("b1","up",6);
+				// $("#b1").animate({
+				// 	marginLeft:"-200px"
+				// },3000);
 			
 			
 		</script>
      </body>
-         </html>
+</html>
