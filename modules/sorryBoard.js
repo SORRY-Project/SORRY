@@ -1,11 +1,22 @@
 (function() {
 
 	Sorry.Board = (function() {
-
+		
+		//contains a list of occupied squares based on
+		//absolute positions rather than color adjusted
+		//positions along with a reference to the
+		//occupying pawn (stored as object literal pairs {position:,pawn:})
+		var occupiedSquares = [];
+	
 		return {
 			/**
-			 *@param {Integer} x
-			 *@param {Integer} y
+			 * This method maps a pair of (x,y) coordinates to
+			 * absolute square positions on the Sorry! Board
+			 * The top left square is position one, and increase 
+			 * as one traverses to the right 			 
+			 *@param {Integer} x The 'click' events x coordinate
+			 *@param {Integer} y The 'click' events y coordinate
+			 *@return {Integer} square The squares position
 			 */
 			mapPixelsToSquare : function(x, y) {
 
@@ -34,6 +45,10 @@
 					return; 
 				}
 			},
+			/**
+			 * @param {Integer}
+			 * @param {String}
+			 */
 			adjustSquareForPawnColor : function(square,color) {
 				
 				if(color === "green") {
@@ -71,13 +86,13 @@
 				
 				square %= 60;
 								
-				return square;
-				
-			}
-		}
-		
-		
-		
-		
+				return square;				
+			},
+			setOccupiedSquares : function(position,pawn) {
+				occupiedSquares.push({position:position,pawn:pawn}); 
+			},
+		}								
 	})();
+		
 })();
+
