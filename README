@@ -1,9 +1,50 @@
-New Github Strategy
-1.Fork to your personal page
-2.Make changes and push to local repository
-3.Pull Request
-4.Accept request for sorry organization if no conflicts
+////GITHUB INSTRUCTIONS////
+If you forked before 4/9, you must delete your fork and refork (click admin on your forked repo page, then scroll down).
+!!!  DO NOT MERGE UNTIL YOU HAVE THE REVISED FORK.  !!!!
 
+1.Click Fork on SORRY-PROJ page to fork to your personal page
+
+2. Clone your local repository. Look on your fork's page to get your personalized address. For example mine is git@github.com:andrewcohen/SORRY.git so in my command line I type: 
+
+	cd directoryIWantToCloneIn
+	git clone git@github.com:andrewcohen/SORRY.git
+
+This will make a copy of the repositories files in the directory specified.
+
+3. Remotes:
+	When you clone, git automatically adds a remote to that destination called 'origin'.  You also want to add 'upstream' which is our project's repository. This is done  by saying: 
+	git remote add upstream git@github.com:SORRY-Project/SORRY.git
+
+Note: Do NOT push directly upstream. This will most likely screw something up.
+
+4. When changes are made by others to the code base, use :
+	git fetch upstream 
+
+This will pull the changes from the project main repo and merge into your local codebase
+
+
+5. Making Changes:
+	When you have edited your code and are satisfied it is in working order, you want to first add the files, check the status, then make a commit to the git repository on your computer as follows: 
+	
+	git add filename       or     git add  .     (this will add all files)
+	git status   (to see what will be committed)
+	git commit -m "short description of commit"
+
+You can make multiple commits without pushing to github, as when you do push all of the past commits will be uploaded
+
+
+
+6. Pushing to GitHub
+	When you decide you have a stable version, you are ready to push to github.
+You will want to push to your fork, rather than the upstream repository.  This is done by:
+
+	git push origin master       (master references the branch)
+
+This will upload the code only to your fork.  You can then go to github.com and click the pull request button at the upper right.  This will create a request for a pull which basically merges the changes from your fork into the main project repo.  
+
+IMPORTANT: Verify all changes before you accept the pull request and merge.  If you are unsure if it will safely merge, DO NOT fulfill the request, ask someone else.
+ 
+	
 
  1.All modules will be properties of the Sorry Namespace.
  2.Declare the Sorry Namespace (i.e var Sorry = {};) at the top of your code. 
