@@ -42,6 +42,8 @@ You will want to push to your fork, rather than the upstream repository.  This i
 
 This will upload the code only to your fork.  You can then go to github.com and click the pull request button at the upper right.  This will create a request for a pull which basically merges the changes from your fork into the main project repo.  
 
+Note: In most cases you will have to pull before you can push (git pull)
+
 IMPORTANT: Verify all changes before you accept the pull request and merge.  If you are unsure if it will safely merge, DO NOT fulfill the request, ask someone else.
  
 	
