@@ -18,7 +18,7 @@ Sorry.Deck = (function() {
 		var cards = this.cards = [];		
 		//deck includes five 1s, but four of all other valid cards
 	    //push five 1s into deck
-		cards.push(new Card(1),new Card(1), new Card(1), new Card(1), new Card(1));
+		cards.push(new Card(1), new Card(1), new Card(1), new Card(1), new Card(1));
 		
 		for(var i = 2; i < 13; i++) {
 			for(var j = 0; j < 4; j++) {

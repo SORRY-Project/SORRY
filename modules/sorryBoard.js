@@ -5,7 +5,7 @@
 		//contains a list of occupied squares based on
 		//absolute positions rather than color adjusted
 		//positions along with a reference to the
-		//occupying pawn (stored as object literal pairs {position:,pawn:})
+		//occupying pawn (stored as object literal pairs {position:,occupier(pawn):})
 		var occupiedSquares = [];
 	
 		return {
@@ -46,8 +46,11 @@
 				}
 			},
 			/**
-			 * @param {Integer}
-			 * @param {String}
+			 * Adjusts the absolute position of the pawn to a relative position 
+			 * based on the pawns START position - the first position out of START
+			 * has a value of 1
+			 * @param {Integer} square
+			 * @param {String} color
 			 */
 			adjustSquareForPawnColor : function(square,color) {
 				
@@ -88,8 +91,18 @@
 								
 				return square;				
 			},
+			/**
+			 * @return 
+			 */
+			getOccupiedSquares : function() {
+				return $.extend([],occupiedSquares);			
+			},
+			/**
+			 * @param {Integer}
+			 * @param {Sorry.Pawn} 
+			 */
 			setOccupiedSquares : function(position,pawn) {
-				occupiedSquares.push({position:position,pawn:pawn}); 
+				occupiedSquares.push({position:position,occupier:pawn}); 
 			},
 		}								
 	})();

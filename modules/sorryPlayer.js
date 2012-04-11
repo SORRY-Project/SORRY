@@ -17,10 +17,10 @@
 		function Player(name,color) {
 			this.name = name;
 			this.pawns = {
-				"one" : new Pawn(color),
-				"two" : new Pawn(color),
-				"three" : new Pawn(color),
-				"four" : new Pawn(color)				
+				"1" : new Pawn(color),
+				"2" : new Pawn(color),
+				"3" : new Pawn(color),
+				"4" : new Pawn(color)				
 			}			
 		}
 		
@@ -49,8 +49,8 @@
 			 * @param {Integer || String} position 
 			 */
 			movePawn : function(ID,position) {				
-				var ID = ID.substring(1).toLowerCase();
-				this.pawns[ID].setPosition(position);				
+				//var ID = ID.substring(1).toLowerCase();
+				this.pawns[ID].setPosition(position);
 			},
 			isWinner : function() {
 
@@ -91,7 +91,7 @@
 	////////////////////////////////////////
 	//Testing Module
 	////////////////////////////////////////
-	var c = window.console;
+	/*var c = window.console;
 	var playerOne = new Sorry.Player("Jeff","Red");
 	c.log(playerOne.isWinner());
 	playerOne.movePawn("rOne","HOME");
@@ -100,7 +100,7 @@
 	playerOne.movePawn("rThree","HOME");
 	c.log(playerOne.isWinner());
 	playerOne.movePawn("rFour","HOME");
-	c.log(playerOne.isWinner());
+	c.log(playerOne.isWinner());*/
 	
 	
 })();

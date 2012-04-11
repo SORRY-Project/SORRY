@@ -7,6 +7,11 @@
 		<link rel='stylesheet' type='text/css' href='css/ui-darkness/jquery-ui-1.8.18.custom.css'>
 		<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
 		<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js'></script>
+		<script src='modules/sorryMaster.js'></script>
+		<script src='modules/sorryPawn.js'></script>
+		<script src='modules/sorryPlayer.js'></script>
+		<script src='modules/sorryBoard.js'></script>
+		<script src='modules/sorryMain.js'></script>
 		<script>
 			$(function() {
 				$("#accordion").accordion({
@@ -25,7 +30,7 @@
 					Your Browser does not support canvas. upgrade
 				</canvas>
 				<div id="boardOverlay">
-					<img id="b1" src="img/bluePiece.png"/>
+					<img id="bOne" src="img/bluePiece.png"/>
 				</div>
 			</div><!-- board container-->
 			<div id="accordion">
@@ -49,8 +54,8 @@
 						Hard
 						<input type="radio" name="diffLevel" value="hard"/>
 						<br/>
-						<button>
-							New Game
+						<button id="startGame">
+							Start Game
 						</button>
 					</form>
 				</div>
@@ -332,7 +337,7 @@
 
 			 */
 
-			var Sorry = {};
+			//var Sorry = {};
 
 			Sorry.gameBoard = (function() {
 
@@ -692,7 +697,7 @@
 				 */
 				function getClickCoordinates() {
 
-					$("#myCanvas").bind("click", function(e) {
+					/*$("#myCanvas").bind("click", function(e) {
 
 						//determine position of canvas relative to the document
 						var offset = $(this).offset(),
@@ -700,15 +705,19 @@
 							x = e.pageX - offset.left, 
 							y = e.pageY - offset.top;
 
-						var square = Sorry.Board.mapPixelsToSquares(x, y);
+						var square = Sorry.Board.mapPixelsToSquare(x, y);
+						//check for collision
+						//if collision, bump pawn if its oppents
+						var adjustedSquare = Sorry.Board.adjustSquareForPawnColor(square,"yellow");
+						//set position of pawn
+						//setposition(adjustedSquare,Square);
+						//adjust occupied squares 
 						
-						var adjustedSquare = Sorry.Board.adjustSquareForPawnColor(square,"green");
 						
-						//console.log(square);
-						console.log(adjustedSquare);
-
-						return [x, y];
-					});
+						console.log(square);
+						//console.log(adjustedSquare);
+						//console.log(x + "," + y);
+					});*/
 				}
 
 				return {
@@ -718,19 +727,6 @@
 						drawStart();
 						drawFinish();
 					},
-					movePawn : function(spaces, pawnID) {
-
-						//convert spaces to pixels
-						var pixels = spaces * 40, //adjust image to center it later
-						//pawn ID
-						pawnID = pawnID.subString(1, 1);
-
-						//determine direction to move pawn
-						//if()
-
-						//$(pawnID).animate()
-
-					},
 					eventLayer : function() {
 
 						getClickCoordinates();
@@ -738,7 +734,7 @@
 					}
 				}
 
-			})(); (function() {
+			})();/* (function() {
 
 				Sorry.Board = (function() {
 
@@ -747,14 +743,16 @@
 						 *@param {Integer} x
 						 *@param {Integer} y
 						 */
-						mapPixelsToSquares : function(x, y) {
+						/*mapPixelsToSquares : function(x, y) {
 
 							var topRow = (x <= 640 && y <= 40), 
 								bottomRow = (x <= 640 && y >= 600), 
 								leftSide = (x <= 40 && y <= 600 && y >= 40), 
 								rightSide = (x >= 600 && y >= 40), 
 								square;
-
+			
+							console.log(greenSafety);
+			
 							if(topRow || bottomRow || leftSide || rightSide) {
 								if(bottomRow) {
 									x = 1280 - x; //+ Math.abs(640 - x);
@@ -767,7 +765,7 @@
 								}
 													
 								return square;
-							}
+							}							
 							else {
 								return;
 							}
@@ -816,8 +814,10 @@
 
 				})();
 
-			})();
+			})();*/
 
+			//console.log(Sorry);
+	
 			Sorry.gameBoard.drawBoard();
 
 			Sorry.gameBoard.eventLayer();
