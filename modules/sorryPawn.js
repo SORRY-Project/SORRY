@@ -16,9 +16,8 @@
 		 */
 		function Pawn(color) {
 			this.position = "START";
-			//this.absolutePosition = null;
 			this.color = color;
-			this.ID = ((idCounter++) % 4) + 1;
+			//this.ID = ((idCounter++) % 4) + 1;
 		}
 
 
@@ -30,6 +29,7 @@
 
 				var valid = false, 
 					position = this.position, 
+					atStart = (this.position === "START"),
 					forwardDelta = (squareClicked - position) % 60, 
 					backwardDelta = (position - squareClicked) % 60,
 					//detect collisions
@@ -38,17 +38,15 @@
 					bump = collisionNotice.bump;
 
 				switch(cardValue) {
-					
-					/* must test to make sure pawn isn't at START */
-					
+										
 					//case one and two are similar
 					//if case 1, execution falls through
 					//to case 2
 					case 1:
 					case 2:
-						if(position === "START" && squareClicked === 1) {
+						if(atStart && squareClicked === 1) {
 							valid = true;
-						} else if(position !== "START") {
+						} else if(!atStart) {
 							if(cardValue === 1 && forwardDelta === 1) {
 								valid = true;
 							} else if(cardValue === 2 && forwardDelta === 2) {
@@ -57,7 +55,7 @@
 						}
 						break;
 					case 4:
-						if(backwardDelta === 4) {
+						if(backwardDelta === 4 && !atStart) {
 							valid = true;
 						}
 						break;
@@ -65,23 +63,23 @@
 						//must check the multimove object
 						break;
 					case 10:
-						if(forwardDelta === 10 || backwardDelta === 1) {
+						if((forwardDelta === 10 || backwardDelta === 1) && !atStart) {
 							valid = true;
 						}
 						break;
 					case 11:
-						if(forwardDelta === 11 || bump) {
+						if((forwardDelta === 11 || bump) && !atStart) {
 							valid = true;
 						}
 						break;
 					case "SORRY":
-						if(position === "START" && bump) {
+						if(atStart && bump) {
 							valid = true;
 						}
 						break;
 					default:
 						//3,5,8,12
-						if(forwardDelta === cardValue) {
+						if((forwardDelta === cardValue) && !atStart) {
 							valid = true;
 						}
 				}
@@ -111,6 +109,7 @@
 			 *@return {Object Literal} 
 			 */
 			detectCollision : function(square) {
+
 				//get occupiedSquares
 				var occupiedSquares = Board.getOccupiedSquares(), 
 					collision = false, 

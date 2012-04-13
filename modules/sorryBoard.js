@@ -6,6 +6,8 @@
 		//absolute positions rather than color adjusted
 		//positions along with a reference to the
 		//occupying pawn (stored as object literal pairs {position:,occupier(pawn):})
+		//initially empty as we are not concerned about collisions occuring 
+		//in the "START" position
 		var occupiedSquares = [];
 	
 		return {

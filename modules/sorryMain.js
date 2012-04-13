@@ -64,6 +64,7 @@
 		}
 		
 		boardOverlay.appendChild(docFragment);
+
 	}
 
 	Sorry.Core.isGameOver = function() {
@@ -91,10 +92,10 @@
 			offsetTop = boardOffset.top;
 	
 		//gather user input
-		$("#startGame").bind("click", function(e) {
-			var settings = Sorry.Initialize.readUserInput();
+		$("#startGame").bind("click", function() {
+			var settings = Sorry.Initialize.readUserInput()
 			Sorry.Initialize.createPlayers(settings);
-			Sorry.Initialize.addPawnsToBoard();
+			Sorry.Initialize.addPawnsToBoard();		    		   
 		});
 
 		$("#boardContainer").bind("click", function(e) {
@@ -115,7 +116,7 @@
 					pawn = Sorry.Core.PlayerOne.pawns[pawnIMG_HTML.substring(1).toLowerCase()];
 				} else if(pawn && target.nodeName === "CANVAS") {
 
-					var square = Board.mapPixelsToSquare(e.pageX - offsetLeft, e.pageY - offsetTop);					
+					var square = Board.mapPixelsToSquare(e.pageX - offsetLeft, e.pageY - offsetTop),					
 						adjustedSquare = Board.adjustSquareForPawnColor(square,Sorry.Core.PlayerOne.pawns["1"].color),
 						validMove = pawn.validateMove(card.value, adjustedSquare);
 						
