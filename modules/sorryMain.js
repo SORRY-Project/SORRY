@@ -21,13 +21,19 @@
 	 */
 	Sorry.Initialize.createPlayers = function(settings) {
 
-		//generate computer's color
-		var colors = ["red", "green", "blue", "yellow"],
+
+		var colors,
 			computerColor;
 		
-		colors.splice(colors.indexOf(settings.color.toLowerCase()), 1);
+		//generate computer's color based on players color selection
+		if(settings.color === "red" || settings.color === "yellow") {
+			colors = ["green","blue"];
+		}
+		else {
+			colors = ["red","yellow"];
+		}
 		
-		computerColor = colors[Math.floor(Math.random() * 3)];
+		computerColor = colors[Math.floor(Math.random() * 2)];
 		//for testing
 
 		Sorry.Core.PlayerOne = new Player(settings.name, settings.color);
@@ -100,21 +106,20 @@
 
 		$("#boardContainer").bind("click", function(e) {
 
-			var target = e.target;
+			var $target = $(e.target);
 
 			if(!Sorry.Core.isGameOver()) {
 
 				//drawCard
 				//card = deck.drawCard();
-
-				//if human player
 				
-				if(target.nodeName === "IMG") {
+				//if human player							
+				if($target.hasClass(Sorry.Core.PlayerOne.pawns["1"].color)) {
 					//drawCard
 					card = deck.drawCard();
 					pawnIMG_HTML = target.id;
-					pawn = Sorry.Core.PlayerOne.pawns[pawnIMG_HTML.substring(1).toLowerCase()];
-				} else if(pawn && target.nodeName === "CANVAS") {
+					pawn = Sorry.Core.PlayerOne.pawns[pawnIMG_HTML.substring(1)];
+				} else if((pawn && $target.get().nodeName === "CANVAS") || $target.hasClass(Sorry.Core.Computer.pawns["1"].color)) {
 
 					var square = Board.mapPixelsToSquare(e.pageX - offsetLeft, e.pageY - offsetTop),					
 						adjustedSquare = Board.adjustSquareForPawnColor(square,Sorry.Core.PlayerOne.pawns["1"].color),
@@ -151,10 +156,26 @@
 						pawnImg = null;
 					}
 				}
+				//if not player one's turn => computer's turn								
+				/*else {
+				 * 
+				 * drawCard
+				 * if difficulty is hard -- look for bump move
+				 * for(var pawn in pawns) {
+				 * 	if(this.position + cardValue === bump) {
+				 * 	this.bump(pawn)
+				 * }
+				 * }
+				 * else randomly generate move
+				 * 	select a pawn and execute an instruction
+				 *  given by card
+				 * }
+				 */
+					
+				}
 
 				//if computer player
 				console.log(pawn);
-				//console.log(pawnImg);
 				console.log(card);
 				console.log(validMove);
 			}
