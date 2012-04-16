@@ -1,0 +1,68 @@
+body{
+	background-color:#000;
+	background-image:url("../img/backgroundGradient.png");
+	background-repeat:repeat-x;
+}
+#banner{
+	background-color: white;
+	font-size: 24pt;
+	height: 75px;
+}
+
+#myCanvas{
+	background-color: #FFFFFF;
+	margin: 20px 20px 20px 20px;
+	float:left;
+	z-index: 10;
+	box-shadow:5px 5px 15px #000;
+}
+
+#gameContainer{
+		height: 640px;
+}
+
+#accordion{
+	float:left;
+	margin-left:100px;
+	z-index: 10;
+	width: 420px;
+	margin-top: 20px;
+}
+
+#rules {
+	max-height:350px;
+	overflow-y:scroll;
+}
+
+#boardContainer{
+	position: relative;
+
+}
+
+#boardOverlay{
+	position: absolute;
+	border: yellow 3px;
+	top: 20px;
+	left: 30px;
+}
+
+#bOne{
+	position: absolute;
+	left: 400px;
+	top: 602px;
+}
+
+#h5Badge{
+	position: absolute;
+	left: 350px;
+	top: 10px;
+}
+
+label {
+	float:left;
+	width:60px;
+}
+
+fieldset {
+	border:none;
+}
