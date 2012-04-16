@@ -27,6 +27,7 @@ body{
 	z-index: 10;
 	width: 420px;
 	margin-top: 20px;
+	box-shadow:0px 15px 15px #000;
 }
 
 #rules {
