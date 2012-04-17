@@ -22,6 +22,8 @@ Note: Do NOT push directly upstream. This will most likely screw something up.
 
 This will pull the changes from the project main repo and merge into your local codebase
 
+Bring your personal fork clone up-to-date with:
+  git checkout master && git merge upstream/master
 
 5. Making Changes:
 	When you have edited your code and are satisfied it is in working order, you want to first add the files, check the status, then make a commit to the git repository on your computer as follows: 
