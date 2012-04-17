@@ -158,14 +158,4 @@
 
 	})();
 
-	//////////////////////////////////////////////////////////
-	//MODULE TESTING
-	//////////////////////////////////////////////////////////
-	/*var pawn = new Sorry.Pawn("blue"),
-	cardValue = 5;
-	cardValue = 1;
-	cardValue = 2;
-	pawn.setPosition(10);
-	console.log(pawn.validateMove(cardValue,12));*/
-
 })();
