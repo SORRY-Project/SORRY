@@ -10,23 +10,21 @@ body{
 }
 
 #myCanvas{
-	background-color: #FFFFFF;
-	margin: 20px 20px 20px 20px;
-	float:left;
-	z-index: 10;
+	background-color: #fff;
 	box-shadow:5px 5px 15px #000;
 }
 
 #gameContainer{
 		height: 640px;
+		margin:20px 50px 0px 80px;
 }
 
 #accordion{
 	float:left;
-	margin-left:100px;
-	z-index: 10;
+	margin-left:150px;
 	width: 420px;
-	margin-top: 20px;
+	margin-top:20px;
+	box-shadow:0px 15px 15px #000;
 }
 
 #rules {
@@ -36,26 +34,18 @@ body{
 
 #boardContainer{
 	position: relative;
-
+	margin:20px;
+	max-height:640px;
+	max-width:640px;
+	float:left;	
 }
 
-#boardOverlay{
-	position: absolute;
-	border: yellow 3px;
-	top: 20px;
-	left: 30px;
-}
-
-#bOne{
-	position: absolute;
-	left: 400px;
-	top: 602px;
-}
-
-#h5Badge{
-	position: absolute;
-	left: 350px;
-	top: 10px;
+#loader {
+	display:none;
+	position:absolute;
+	left:297px;
+	top:297px;
+	z-index:2;
 }
 
 label {
@@ -65,4 +55,9 @@ label {
 
 fieldset {
 	border:none;
+}
+
+.blue {
+	position:relative;
+	top:-640px;
 }

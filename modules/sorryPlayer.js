@@ -1,3 +1,8 @@
+// ==ClosureCompiler==
+// @output_file_name default.js
+// @compilation_level SIMPLE_OPTIMIZATIONS
+// ==/ClosureCompiler==
+
 
 (function() {
 	
@@ -24,17 +29,27 @@
 				"4" : new Pawn(color)			
 			};
 			
+			//declare ownership of pawns
+			for(var pawn in pawns) {
+				pawns[pawn].owner = this;
+			}
+			
 			this.name = name;
 			this.getPawns = function() {
 				return $.extend({},pawns);
 			};
 			this.multiMove = {
-				remainingMoves : null,
+				inProgress : false,
+				remainingMoves : 0,
 				initialize : function() {
+					this.inProgress = true;
 					this.remainingMoves = 7;
 				},
 				setMoveCount : function(delta) {
 					this.remainingMoves -= delta;
+					if(this.remainingMoves === 0) {
+						this.inProgress = false;
+					}
 				}
 			}			
 		}
@@ -68,6 +83,15 @@
 			setRemainingMoves : function(delta) {
 				this.multiMove.setMoveCount(delta)
 			},
+			/**
+			 * 
+			 */
+			hasRemainingMoves : function() {
+				return this.multiMove.inProgress;
+			},
+			/**
+			 * 
+			 */
 			initializeMultiMove : function() { 
 				this.multiMove.initialize();
 			},						
@@ -92,7 +116,7 @@
 				  }
 				  
 				  return true;				  				  	  				   
-			},
+			}
 			
 		};
 		

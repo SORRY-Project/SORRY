@@ -8,16 +8,12 @@
 		//dependencies
 		var Board = Sorry.Board;
 
-		//private variables
-		var idCounter = 0;
-
 		/**
 		 * @param {String} color The color of the pawn (red,green,blue,yellow)
 		 */
 		function Pawn(color) {
 			this.position = "START";
 			this.color = color;
-			//this.ID = ((idCounter++) % 4) + 1;
 		}
 
 
@@ -25,9 +21,9 @@
 			/**
 			 *
 			 */
-			validateMove : function(cardValue, squareClicked, remainingMultiMoves) {
+			validateMove : function(cardValue, squareClicked) {
 
-				var availMultiMoves,
+				var remaining_MM_Spaces,
 					valid = false, 
 					position = this.position, 
 					atStart = (this.position === "START"),
@@ -38,8 +34,11 @@
 					collision = collisionNotice.collision,
 					bump = collisionNotice.bump;
 
-				if(arguments.length === 3) {
-					availMultiMoves = remainingMultiMoves;
+				//if this call to validateMove occurs during
+				//a multiMove, determine the number of available
+				//pawn moves
+				if(this.owner.hasRemainingMoves()) {
+					remaining_MM_Spaces = this.owner.getRemainingMoves();
 				}
 
 				switch(cardValue) {
@@ -96,7 +95,7 @@
 				//if a multiMove is in play return validity of attempted
 				//move along with the magnitude of the pawns position change
 				//to update the number of remaining moves in multiMove
-				if(availMultiMoves) {					
+				if(remaining_MM_Spaces) {					
 					return {validMove : valid,
 							pawnDelta : Math.abs(forwardDelta)
 					}
@@ -114,7 +113,7 @@
 				} else if(position === 21 || position === 36 || position === 51) {
 					position += 4;
 				}
-
+				
 				this.position = position;
 			},
 			/**

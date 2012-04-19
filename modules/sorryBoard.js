@@ -105,7 +105,7 @@
 			 */
 			setOccupiedSquares : function(position,pawn) {
 				occupiedSquares.push({position:position,occupier:pawn}); 
-			},
+			}
 		}								
 	})();
 		

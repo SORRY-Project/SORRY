@@ -8,6 +8,8 @@
 		<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
 		<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js'></script>
 		<script src='modules/sorryMaster.js'></script>
+		<script src='modules/sorryCard.js'></script>
+		<script src='modules/sorryDeck.js'></script>
 		<script src='modules/sorryBoard.js'></script>
 		<script src='modules/sorryPawn.js'></script>
 		<script src='modules/sorryPlayer.js'></script>
@@ -29,7 +31,7 @@
 				<canvas id="myCanvas" width="640" height="640">
 					Your Browser does not support canvas. upgrade
 				</canvas>
-				<div id="boardOverlay"></div>
+				<img id="loader" src="img/ajax-loader.gif"/>
 			</div><!-- board container-->
 			<div id="accordion">
 				<h3><a href="#">Game</a></h3>
@@ -55,12 +57,12 @@
 							<input type="radio" name="diffLevel" value="hard" id="hardDiff"/>
 						</fieldset>
 						<fieldset>
-							<button id="startGame">
+							<button id="startGame" type="button">
 								Start Game
 							</button>
 							<br/>
 							<br/>
-							<button id="drawCard">
+							<button id="drawCard" type="button">
 								Draw Card --- For Testing Purposes
 							</button>
 						</fieldset>
@@ -262,7 +264,6 @@
 						<dd>
 							Move a pawn forward eight squares.
 						</dd>
-						<dd></dd>
 						<dt>
 							10
 						</dt>
