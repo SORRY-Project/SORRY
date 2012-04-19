@@ -23,7 +23,11 @@ body{
 	float:left;
 	margin-left:150px;
 	width: 420px;
+<<<<<<< HEAD
 	margin-top:20px;
+=======
+	margin-top: 20px;
+>>>>>>> f0a475a1e2e7f4892b8b7fbcf8e72ffffe413a35
 	box-shadow:0px 15px 15px #000;
 }
 
